@@ -1,0 +1,107 @@
+Que 1️⃣ : Why 'let' was introduced if 'var' already existed?
+        : Why 'var' leaks outside block but 'let' does not?
+
+In early JavaScript, only "var" was used to declare variables. But it had some problems:
+
+Problems with var:
+* Function scoped, not block scoped
+* Can be redeclared accidentally
+* Can create bugs in loops and conditions
+
+
+Example with var:--------------------------------------------------
+
+if(true){
+  var x = 10;
+}
+console.log(x); // 10 (accessible outside block)
+------------------------------------------------------------------ 
+
+=> So "let" was introduced in ES6 to fix this.
+
+Example with let:----------------------------------
+
+if(true){
+  let x = 10;
+}
+console.log(x); // Error (block scope)
+------------------------------------------------------
+
+Advantages of let:
+
+* Block scoped
+* Cannot redeclare in same scope
+* Safer for loops and conditions
+
+
+
+
+
+
+______________________________________________________________________________________________________________________
+______________________________________________________________________________________________________________________
+Que 2️⃣ Why const allows changing object properties?
+
+const means the reference cannot change, not the content.
+
+Equal-to (=) use krke nayi value nahi daal skte, but object k andar ek property ki value baadalte hain to that is allowed.
+
+Example:--------------------------------
+const obj = {name: "Nick"};
+obj.name = "Rahul"; // allowed
+name = {} // not allowed
+console.log(obj);
+-----------------------------------------
+Works because we did not change the object reference, only its property.
+
+
+But this is not allowed:-----------------
+const obj = {name: "Nick"};
+obj = {name: "Rahul"}; // Error
+-----------------------------------------
+Because now we are reassigning the object.
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Que 3️⃣ : Object.freeze() in JavaScript.
+
+Object.freeze() kisi object ko completely immutable (change-proof) bana deta hai.
+
+Iske baad:
+
+❌ properties change nahi ho sakti
+
+❌ new properties add nahi ho sakti
+
+❌ properties delete nahi ho sakti
+
+
+example -----------------------------------
+const obj = {
+  name: "Nick",
+  age: 21
+};
+
+Object.freeze(obj);
+
+obj.name = "Rahul";   // ❌ change nahi hoga
+obj.city = "Delhi";   // ❌ add nahi hoga
+delete obj.age;       // ❌ delete nahi hoga
+
+console.log(obj);
+-------------------------------------------
+Output: { name: "Nick", age: 21 }
+Object same hi rahega.
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
