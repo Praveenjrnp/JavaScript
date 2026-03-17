@@ -38,8 +38,8 @@ Advantages of let:
 
 
 
-______________________________________________________________________________________________________________________
-______________________________________________________________________________________________________________________
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 Que 2️⃣ Why const allows changing object properties?
 
 const means the reference cannot change, not the content.
@@ -103,5 +103,33 @@ Object same hi rahega.
 
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 4 : Why NaN is a number?
+ typeof NaN //Number
+ NaN ko JS as a 'Failed number operation' ki tarah treat karta hai. 
+ Qki 'Failed number operation' hai, to jab bhi Nan hoga wo ek 'Number' hoga
+
+ like : 2 * "nick"     // Output : NaN
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+que 5 : undefined Vs null ?
+  undefined :=> Jab bhi ham koi variable declare karte hain , to JS By-Default uski value 'undefined' assign karta hai, we see that in previous example in JS.
+  null :=> ye value ham khud 'null' assign karte hain, qki hame abhi uski value pata nahi hoti; future me jake iski value pata chalegi aur iski value likhenge.
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Que 6 : !! value for truthiness ?
+  Exposes truthy or falsy nature of the value
+  !0        //true -->> !(false) -->> ! paranthesis ke andar koi value ka ulta deta hai, not(false) => true
+  !!0       //false -->> !(!(false)) -->> !(true) -->> false
+  !!""      //false
+  !!"nick"  //true
+
+
+
+
 
 
