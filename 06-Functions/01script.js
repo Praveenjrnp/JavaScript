@@ -29,7 +29,7 @@ greet("Alice"); // Output: Hello, Alice!
 // agar triple dots (...), 'function' ke 'parameter' space me lage to 'Rest operator' aur 'Array' ya 'Objects' me lage to 'Spreasd opertator' kahte.
 //_________________________________________________________________________________________________________________________
 
-//jab hamare paas kai sare arguments ho, to hame utne hi parameters banane padenge, isse bachne ke liye rest parameters ka use karte hain.
+//jab hamare paas kai sare arguments ho, to hame utne hi parameters banane padenge, isse bachne ke liye 'Rest parameters' ka use karte hain.
 
 /*
 function sum(...numbers) {   // rest parameter syntax (three dots ... followed by the parameter name).
@@ -49,4 +49,19 @@ function ancd1(a,b,c, ...val){
     
 }
 ancd1(1, 2, 3, 4, 5, 6); // Output: 1 2 3 [4, 5, 6] 
+
+
+
+
+
+// Que : Use Rest parameter to accept any number of scores and return the total.======================================
+function getScores(...scores){
+    let total = 0;
+    scores.forEach(function(val){
+        total = total + val;
+    });
+    return total;
+
+}
+console.log(getScores(10, 12, 14, 18));
 

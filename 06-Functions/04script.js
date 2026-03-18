@@ -52,16 +52,20 @@ abc();
   
 
 
+// declaration ----------------->>>>>>>>>>>>>>>>>>>>>>>>>> Ye hoist hota hai
+
 dcba(); // Output: hello (function declarations are hoisted, so this works) Aur ye sirf JAVASCRIPT me hota hai, dusre programming languages me aisa nahi hota hai.
 
-// declaration ----------------->>>>>>>>>>>>>>>>>>>>>>>>>>
 function dcba(){   // Function declaration is hoisted, so it can be called before its definition.
     console.log("hello");
 }
 
 
 
-// expression  ------------------>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+// expression  ------------------>>>>>>>>>>>>>>>>>>>>>>>>>> Ye hoist nahi hota hai
+
 dcba1(); // Output: Uncaught ReferenceError: Cannot access 'dcba1' before initialization (function expressions are not hoisted, so this will throw an error)
 
 let dcba1 = function(){

@@ -129,7 +129,183 @@ Que 6 : !! value for truthiness ?
   !!"nick"  //true
 
 
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 7 : Why we need Arrow func & Func expression ?
+  Function Expression → flexible & safe function creation.
+  Arrow Function → shorter + better this handling.
+
+ Arrow Vs Regular func : --------------------------------
+👉 Arrow = short + no own 'this'
+👉 Regular = full features (this, arguments, constructor)
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 8 : What is it mean when we say "functions are first-class citizens"?
+  In JavaScript, functions are first-class citizens because they can be "treated as values" and used like any other variable.
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 9 : What is "high order function" ?
+  A higher-order function is a function that :
+  1. Takes another function as argument, OR
+  2. Returns a function
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 10 : What is closure? When is it created?
+  🔹 What is a Closure?
+👉 Jab ek func dusre func ko return kar rha ho AND andar wala func, bahar wale (Parent) func  ke kisi variable ko use kar rha ho.
+
+ex 1: ----------------------------------------
+function abcd(){
+  let val = 0;
+  return function(){
+    console.log(val);
+  }
+}
+--------------------------------------------
+
+ex 2: ------------------------------------------------------
+function outer() {
+  let count = 0;
+
+  return function inner() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+
+counter(); // 1    // ye dono closure hain
+counter(); // 2
+
+👉 Here, inner() remembers count → this is closure
+--------------------------------------------------------------
 
 
 
+🔹 When is Closure Created?
+👉 Closure is created:
+✔ Whenever a function is created inside another function
+✔ And it uses variables from outer function
+
+
+⚠️ Important:
+It is created at function creation time, not at execution
+
+
+🧠 One-Line Definition : ----------------------------------------------------
+👉 Closure = function + its remembered outer variables
+------------------------------------------------------------------------------
+🔥 Real-Life Use :
+  * Data hiding (private variables)
+  * Counters
+  * Callbacks / event handlers
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 11 : What is the use of IIFE? Name one real-world use case.
+👉 IIFE = Immediately Invoked Function Expression
+👉 A function that runs immediately after it is defined
+-----------------------------------------------------
+(function() {
+  console.log("Runs instantly!");
+})();
+-----------------------------------------------------
+🔹 Use of IIFE : 
+1. Avoid Global Pollution 🌍
+    * Variables inside IIFE are private
+    * They don’t affect global scope
+2.Create Private Scope 🔒
+    * Helps in data hiding
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 12. splice() vs slice() ?
+
+🔸 splice() : -
+👉 Original array ko change karta hai (modify)
+👉 Add / Remove dono kar sakte hain
+
+ex : --------------------------------------
+const arr = [10, 20, 30, 40];
+arr.splice(1, 2);
+console.log(arr); // [10, 40]
+_________________________________________________
+🔸 slice() : -
+👉 Original array ko change nahi karta ❌
+👉 Sirf copy banata hai
+
+ex : --------------------------------------
+const arr = [10, 20, 30, 40];
+const newArr = arr.slice(1, 3);
+console.log(newArr); // [20, 30]
+console.log(arr);    // [10, 20, 30, 40]
+---------------------------------------------
+
+🧠 One-Line Difference :
+👉 splice = change original array
+👉 slice = copy without changing
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+Que 13 : map() vs forEach() ?
+
+🔸 map() : -
+👉 New array return karta hai ✔
+👉 Data transform karne ke liye use hota hai
+
+ex : --------------------------------------
+const arr = [1, 2, 3];
+const result = arr.map(num => num * 2);
+console.log(result); // [2, 4, 6]
+_________________________________________________
+
+🔸 forEach() : -
+👉 Kuch return nahi karta ❌
+👉 Sirf loop / side work ke liye use hota hai
+
+ex : --------------------------------------
+const arr = [1, 2, 3];
+
+arr.forEach(num => {
+console.log(num * 2);
+});
+
+// Output: 2, 4, 6
+
+🧠 One-Line Difference :
+👉 map = transform + return new array
+👉 forEach = loop + no return
+
+
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
