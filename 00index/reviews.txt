@@ -1,4 +1,4 @@
-Que 1️⃣ : Why 'let' was introduced if 'var' already existed?
+🔹Que 1️⃣ : Why 'let' was introduced if 'var' already existed?
         : Why 'var' leaks outside block but 'let' does not?
 
 In early JavaScript, only "var" was used to declare variables. But it had some problems:
@@ -40,7 +40,7 @@ Advantages of let:
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 2️⃣ Why const allows changing object properties?
+🔹Que 2️⃣ Why const allows changing object properties?
 
 const means the reference cannot change, not the content.
 
@@ -69,7 +69,7 @@ Because now we are reassigning the object.
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-Que 3️⃣ : Object.freeze() in JavaScript.
+🔹Que 3️⃣ : Object.freeze() in JavaScript.
 
 Object.freeze() kisi object ko completely immutable (change-proof) bana deta hai.
 
@@ -104,7 +104,7 @@ Object same hi rahega.
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 4 : Why NaN is a number?
+🔹Que 4 : Why NaN is a number?
  typeof NaN //Number
  NaN ko JS as a 'Failed number operation' ki tarah treat karta hai. 
  Qki 'Failed number operation' hai, to jab bhi Nan hoga wo ek 'Number' hoga
@@ -113,7 +113,7 @@ Que 4 : Why NaN is a number?
 
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-que 5 : undefined Vs null ?
+🔹que 5 : undefined Vs null ?
   undefined :=> Jab bhi ham koi variable declare karte hain , to JS By-Default uski value 'undefined' assign karta hai, we see that in previous example in JS.
   null :=> ye value ham khud 'null' assign karte hain, qki hame abhi uski value pata nahi hoti; future me jake iski value pata chalegi aur iski value likhenge.
 
@@ -121,7 +121,7 @@ que 5 : undefined Vs null ?
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 
-Que 6 : !! value for truthiness ?
+🔹Que 6 : !! value for truthiness ?
   Exposes truthy or falsy nature of the value
   !0        //true -->> !(false) -->> ! paranthesis ke andar koi value ka ulta deta hai, not(false) => true
   !!0       //false -->> !(!(false)) -->> !(true) -->> false
@@ -131,7 +131,7 @@ Que 6 : !! value for truthiness ?
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 7 : Why we need Arrow func & Func expression ?
+🔹Que 7 : Why we need Arrow func & Func expression ?
   Function Expression → flexible & safe function creation.
   Arrow Function → shorter + better this handling.
 
@@ -142,13 +142,13 @@ Que 7 : Why we need Arrow func & Func expression ?
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 8 : What is it mean when we say "functions are first-class citizens"?
+🔹Que 8 : What is it mean when we say "functions are first-class citizens"?
   In JavaScript, functions are first-class citizens because they can be "treated as values" and used like any other variable.
 
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 9 : What is "high order function" ?
+🔹Que 9 : What is "high order function" ?
   A higher-order function is a function that :
   1. Takes another function as argument, OR
   2. Returns a function
@@ -156,7 +156,7 @@ Que 9 : What is "high order function" ?
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 10 : What is closure? When is it created?
+🔹Que 10 : What is closure? When is it created?
   🔹 What is a Closure?
 👉 Jab ek func dusre func ko return kar rha ho AND andar wala func, bahar wale (Parent) func  ke kisi variable ko use kar rha ho.
 
@@ -210,7 +210,7 @@ It is created at function creation time, not at execution
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 11 : What is the use of IIFE? Name one real-world use case.
+🔹Que 11 : What is the use of IIFE? Name one real-world use case.
 👉 IIFE = Immediately Invoked Function Expression
 👉 A function that runs immediately after it is defined
 -----------------------------------------------------
@@ -230,7 +230,7 @@ Que 11 : What is the use of IIFE? Name one real-world use case.
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 12. splice() vs slice() ?
+🔹Que 12. splice() vs slice() ?
 
 🔸 splice() : -
 👉 Original array ko change karta hai (modify)
@@ -263,7 +263,7 @@ console.log(arr);    // [10, 20, 30, 40]
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-Que 13 : map() vs forEach() ?
+🔹Que 13 : map() vs forEach() ?
 
 🔸 map() : -
 👉 New array return karta hai ✔
@@ -301,7 +301,25 @@ console.log(num * 2);
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+🔹Que 14: Can an Object key be a number or boolean?
 
+👉 Yes, but internally they become strings
+
+🔸ex:o ----------------------------------------------
+const obj = {
+    1: "one",
+    true: "yes"
+};
+console.log(obj[1]);      // "one"
+console.log(obj["1"]);    // "one"
+
+console.log(obj[true]);   // "yes"
+console.log(obj["true"]); // "yes"
+🧠 Explanation (Simple)
+-------------------------------------------------------------
+
+👉 JavaScript object keys are always strings (or symbols)
+👉 Number & boolean keys automatically convert into string
 
 
 
@@ -309,3 +327,33 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+🔹Que 15: Reference Copy vs Deep Clone
+
+🔸 Reference Copy ==============================================
+👉 Same memory ko point karta hai (copy nahi, link hota hai)
+ex : ----------------------------------------------
+const obj1 = { name: "Nick" };
+const obj2 = obj1;
+obj2.name = "Rahul";
+
+console.log(obj1.name); // Rahul ❗ (change ho gaya)
+---------------------------------------------------
+👉 Dono same object share karte hain
+
+
+🔸 Deep Clone ===================================================
+👉 Naya object banta hai (independent copy ✔)
+
+ex: ----------------------------------------------
+const obj1 = { name: "Nick" };
+const obj2 = JSON.parse(JSON.stringify(obj1));
+obj2.name = "Rahul";
+
+console.log(obj1.name); // Nick ✔ (no change)
+----------------------------------------------
+👉 Original safe rehta hai
+
+
+🧠 One-Line Difference :- 
+👉 Reference = same object share
+👉 Deep Clone = completely new copy
